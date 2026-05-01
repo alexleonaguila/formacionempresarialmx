@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoImg from "../../img/logo.webp";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,17 +31,17 @@ export function Navbar() {
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-3 group">
             <div className="w-10 h-10 border-2 border-[#c9a227] flex items-center justify-center">
-              <span className="text-[#c9a227] font-black text-xs tracking-wider">MI</span>
+                  <img src={logoImg} alt="Formación Empresarial" className="h-10" />
             </div>
             <div className="leading-none">
               <p
                 className="text-white tracking-[0.3em] uppercase"
                 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.1rem", letterSpacing: "0.25em" }}
               >
-                Minilista
+                Formación
               </p>
               <p className="text-[#c9a227] tracking-[0.5em] uppercase" style={{ fontSize: "0.55rem" }}>
-                Industrial
+                Empresarial
               </p>
             </div>
           </a>
