@@ -1,98 +1,104 @@
 import { useState } from "react";
-import { Clock, Users, Star, ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import img3 from "../../imports/3.png";
 import img4 from "../../imports/4.png";
 import img5 from "../../imports/5.png";
 import img1 from "../../imports/1.png";
 import img2 from "../../imports/2.png";
 
-const categories = ["Todos", "Manufactura", "Retail", "Servicios", "Construcción", "Tecnología", "Agroempresarial"];
+const categories = ["Todos", "Liderazgo", "Servicio al Cliente", "Desarrollo Gerencial", "Bienestar", "Team Building", "Estrategia"];
 
-const courses = [
+const services = [
   {
     id: 1,
-    title: "Liderazgo en Planta de Producción",
-    category: "Manufactura",
-    level: "Intermedio",
-    duration: "24 hrs",
-    students: "1,200",
-    rating: 4.9,
-    price: "$2,800",
-    description: "Lidera equipos en entornos de manufactura y optimiza procesos productivos desde la primera sesión.",
+    title: "Liderazgo",
+    category: "Liderazgo",
+    description: "Capacitaciones prácticas e inspiradoras para desarrollar habilidades de liderazgo adaptadas a los retos actuales.",
     img: img3,
     featured: true,
+    highlights: [
+      "Role playing y simulaciones que reflejan situaciones reales",
+      "Análisis de casos y ejercicios de debriefing",
+      "Autoconocimiento y motivación",
+      "Modelos de liderazgo contemporáneo e interdgeneracionales",
+    ],
   },
   {
     id: 2,
-    title: "Gestión de Equipos en Retail",
-    category: "Retail",
-    level: "Básico",
-    duration: "16 hrs",
-    students: "980",
-    rating: 4.8,
-    price: "$1,900",
-    description: "Motiva y dirige tu equipo de ventas para maximizar resultados en comercios.",
+    title: "Atención y Servicio al Cliente",
+    category: "Servicio al Cliente",
+    description: "Capacitaciones dinámicas y vivenciales enfocadas en desarrollar habilidades clave como empatía y comunicación efectiva.",
     img: img4,
     featured: false,
+    highlights: [
+      "Actividades prácticas y juegos de roles con clientes reales",
+      "Técnicas de escucha activa y lenguaje positivo",
+      "Programa 'Las estrellas del servicio' con reconocimiento",
+      "Personalización según industria: hotelería, retail, corporativo",
+    ],
   },
   {
     id: 3,
-    title: "Liderazgo en Empresas de Servicios",
-    category: "Servicios",
-    level: "Avanzado",
-    duration: "32 hrs",
-    students: "750",
-    rating: 4.9,
-    price: "$3,500",
-    description: "Estrategias avanzadas para liderar organizaciones con alto enfoque en la experiencia del cliente.",
+    title: "Desarrollo de Mandos Medios y Gerenciales",
+    category: "Desarrollo Gerencial",
+    description: "Fortalecimiento de competencias estratégicas y operativas para líderes emergentes y gerentes.",
     img: img5,
     featured: false,
+    highlights: [
+      "Gestión del tiempo, delegación efectiva y manejo del estrés",
+      "Simulaciones para toma de decisiones bajo presión",
+      "Mentoría y autoevaluación de estilo de liderazgo",
+      "Herramientas prácticas: planificación estratégica y supervisión",
+    ],
   },
   {
     id: 4,
-    title: "Supervisión en Obras y Construcción",
-    category: "Construcción",
-    level: "Intermedio",
-    duration: "20 hrs",
-    students: "620",
-    rating: 4.7,
-    price: "$2,400",
-    description: "Habilidades de liderazgo para supervisores y jefes de obra en empresas constructoras.",
+    title: "SPA y Bienestar de Colaboradores",
+    category: "Bienestar",
+    description: "Programas diseñados para elevar la calidad del servicio en spas y promover bienestar holístico.",
     img: img1,
     featured: false,
+    highlights: [
+      "Técnicas terapéuticas y de relajación aplicadas al contexto SPA",
+      "Atención al cliente en entornos de lujo y personalización",
+      "Gestión operativa del SPA y estándares de calidad",
+      "Prácticas vivenciales en escenarios reales o simulados",
+    ],
   },
   {
     id: 5,
-    title: "Cultura Ágil para PyMEs Tech",
-    category: "Tecnología",
-    level: "Básico",
-    duration: "18 hrs",
-    students: "540",
-    rating: 4.8,
-    price: "$2,100",
-    description: "Implementa metodologías ágiles y lidera equipos en empresas pequeñas de tecnología.",
+    title: "Team Building",
+    category: "Team Building",
+    description: "Experiencias diseñadas para fortalecer cohesión, comunicación y compromiso en equipos de trabajo.",
     img: img2,
     featured: false,
+    highlights: [
+      "Dinámicas introspectivas y autoconocimiento grupal",
+      "Retos grupales que fomentan creatividad y colaboración",
+      "Metáforas poderosas con objetivos compartidos",
+      "Actividades al aire libre o espacios cerrados personalizados",
+    ],
   },
   {
     id: 6,
-    title: "Liderazgo Agroindustrial",
-    category: "Agroempresarial",
-    level: "Básico",
-    duration: "14 hrs",
-    students: "410",
-    rating: 4.7,
-    price: "$1,600",
-    description: "Gestión de personas y equipos en empresas del sector agropecuario.",
+    title: "Kick Off Empresariales",
+    category: "Estrategia",
+    description: "Sesión estratégica para alinear equipos con metas y marcar el inicio de ciclos operativos o proyectos.",
     img: img3,
     featured: false,
+    highlights: [
+      "Presentación clara y motivadora de objetivos clave",
+      "Fomento del sentido de pertenencia y visión compartida",
+      "Definición de estrategias prácticas y pasos alcanzables",
+      "Identificación de roles, responsabilidades e impacto individual",
+    ],
   },
 ];
 
 export function Courses() {
   const [active, setActive] = useState("Todos");
 
-  const filtered = active === "Todos" ? courses : courses.filter((c) => c.category === active);
+  const filtered = active === "Todos" ? services : services.filter((s) => s.category === active);
 
   return (
     <section id="cursos" className="bg-black py-24">
@@ -103,7 +109,7 @@ export function Courses() {
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-12 bg-[#c9a227]" />
               <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>
-                Programas
+                Servicios
               </span>
             </div>
             <h2
@@ -114,9 +120,9 @@ export function Courses() {
                 letterSpacing: "0.03em",
               }}
             >
-              Cursos que
+              Programas que
               <br />
-              <span className="text-[#c9a227]">cambian resultados</span>
+              <span className="text-[#c9a227]">transforman organizaciones</span>
             </h2>
           </div>
           <a
@@ -146,69 +152,59 @@ export function Courses() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
-          {filtered.map((course) => (
+          {filtered.map((service) => (
             <div
-              key={course.id}
+              key={service.id}
               className="bg-black hover:bg-[#0d0d0d] group transition-all duration-300 flex flex-col overflow-hidden"
             >
               {/* Image */}
               <div className="relative overflow-hidden" style={{ height: "200px" }}>
                 <img
-                  src={course.img}
-                  alt={course.title}
+                  src={service.img}
+                  alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-90"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
                 <div className="absolute top-3 left-3 flex gap-2">
-                  {course.featured && (
+                  {service.featured && (
                     <span className="bg-[#c9a227] text-black text-xs px-2 py-0.5 tracking-widest uppercase font-bold">
                       Destacado
                     </span>
                   )}
                   <span className="border border-white/30 text-white text-xs px-2 py-0.5 tracking-widest uppercase">
-                    {course.category}
+                    {service.category}
                   </span>
-                </div>
-                <div className="absolute bottom-3 right-3 flex items-center gap-1">
-                  <Star size={12} className="text-[#c9a227] fill-[#c9a227]" />
-                  <span className="text-white text-xs font-medium">{course.rating}</span>
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6 flex flex-col flex-1 border-l border-white/5 group-hover:border-[#c9a227]/20 transition-colors duration-300">
-                <span className="text-gray-600 text-xs tracking-[0.15em] uppercase mb-2">{course.level}</span>
                 <h3
                   className="text-white mb-3 group-hover:text-[#c9a227] transition-colors duration-300"
                   style={{ fontSize: "1rem", fontWeight: 600, lineHeight: 1.35 }}
                 >
-                  {course.title}
+                  {service.title}
                 </h3>
-                <p className="text-gray-500 text-sm flex-1 leading-relaxed mb-5" style={{ fontWeight: 300 }}>
-                  {course.description}
+                <p className="text-gray-500 text-sm mb-4 leading-relaxed" style={{ fontWeight: 300 }}>
+                  {service.description}
                 </p>
 
-                <div className="flex items-center gap-4 text-xs text-gray-600 mb-5">
-                  <span className="flex items-center gap-1.5">
-                    <Clock size={11} /> {course.duration}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Users size={11} /> {course.students}
-                  </span>
+                {/* Highlights */}
+                <div className="space-y-2 mb-5 flex-1">
+                  {service.highlights.map((highlight, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-gray-400">
+                      <CheckCircle size={13} className="text-[#c9a227] mt-0.5 flex-shrink-0" />
+                      <span>{highlight}</span>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                  <span
-                    className="text-[#c9a227]"
-                    style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.5rem", letterSpacing: "0.05em" }}
-                  >
-                    {course.price}
-                  </span>
+                <div className="pt-4 border-t border-white/5">
                   <a
                     href="#contacto"
-                    className="flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-gray-400 hover:text-[#c9a227] transition-colors duration-200"
+                    className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-gray-400 hover:text-[#c9a227] transition-colors duration-200"
                   >
-                    Inscribirse <ArrowRight size={13} />
+                    Contáctanos <ArrowRight size={13} />
                   </a>
                 </div>
               </div>
