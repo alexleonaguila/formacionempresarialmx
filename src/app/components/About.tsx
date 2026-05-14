@@ -44,7 +44,7 @@ export function About() {
               <div className="relative rounded-none overflow-hidden" style={{ height: "520px" }}>
                 <img
                   src={img2}
-                  alt="Equipo Minilista Industrial"
+                  alt="Equipo Formacion Empresarial"
                   className="w-full h-full object-cover"
                 />
                 {/* Dark overlay gradient */}
@@ -117,46 +117,7 @@ export function About() {
         </div>
       </section>
 
-      {/* ¿Cómo lo hacemos? Section */}
-      <section className="bg-[#0a0a0a] py-20 border-t border-[#c9a227]/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-px w-12 bg-[#c9a227]" />
-              <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>
-                Nuestra metodología
-              </span>
-              <div className="h-px w-12 bg-[#c9a227]" />
-            </div>
-            <h2
-              className="text-white uppercase mb-4 leading-none"
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                letterSpacing: "0.03em",
-              }}
-            >
-              ¿Cómo lo hacemos?
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {metodologia.map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#1a1a1a] border border-[#c9a227]/20 hover:border-[#c9a227]/50 p-6 transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 bg-[#c9a227] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-black text-xs font-bold">✓</span>
-                  </div>
-                  <p className="text-gray-300 text-sm leading-relaxed">{item}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+   
 
       {/* Resultados Section */}
       <section className="bg-[#0a0a0a] py-20 border-t border-[#c9a227]/20">

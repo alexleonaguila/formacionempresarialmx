@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
-import img3 from "../../imports/3.png";
-import img4 from "../../imports/4.png";
-import img5 from "../../imports/5.png";
-import img1 from "../../imports/1.png";
+import img3 from "../../img/3.webp";
+import img4 from "../../img/4.webp";
+import img5 from "../../img/5.webp";
+import img1 from "../../img/1.webp";
 import img2 from "../../imports/2.png";
 
 const categories = ["Todos", "Liderazgo", "Servicio al Cliente", "Desarrollo Gerencial", "Bienestar", "Team Building", "Estrategia"];

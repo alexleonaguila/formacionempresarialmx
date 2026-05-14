@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react";
-
+import logoImg from "../../img/logo.webp";
 export function Footer() {
   return (
     <footer className="bg-[#050505] text-gray-600 border-t border-white/5">
@@ -9,17 +9,17 @@ export function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 border-2 border-[#c9a227] flex items-center justify-center">
-                <span className="text-[#c9a227] font-black text-xs tracking-wider">MI</span>
+                <img src={logoImg} alt="Formación Empresarial" className="h-10" />
               </div>
               <div className="leading-none">
                 <p
                   className="text-white tracking-[0.3em] uppercase"
                   style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1rem" }}
                 >
-                  Minilista
+                  Formacion 
                 </p>
                 <p className="text-[#c9a227] tracking-[0.5em] uppercase" style={{ fontSize: "0.5rem" }}>
-                  Industrial
+                  empresarial
                 </p>
               </div>
             </div>
@@ -44,12 +44,12 @@ export function Footer() {
             <h4 className="text-white text-xs tracking-[0.2em] uppercase mb-5">Cursos</h4>
             <ul className="space-y-2.5 text-sm">
               {[
-                "Liderazgo en Manufactura",
-                "Gestión en Retail",
-                "Supervisión Construcción",
-                "Liderazgo en Servicios",
-                "PyMEs Tecnológicas",
-                "Sector Agroempresarial",
+                "Liderazgo",
+                "Atención y Servicio al Cliente",
+                "Desarrollo de Mandos Medios y Gerenciales",
+                "SPA y Bienestar de Colaboradores",
+                "Team Building",
+                "Kick Off Empresariales",
               ].map((item) => (
                 <li key={item}>
                   <a href="#cursos" className="hover:text-[#c9a227] transition-colors duration-150 flex items-center gap-2">
@@ -65,7 +65,7 @@ export function Footer() {
           <div>
             <h4 className="text-white text-xs tracking-[0.2em] uppercase mb-5">Empresa</h4>
             <ul className="space-y-2.5 text-sm">
-              {["Quiénes somos", "Metodología", "Instructores", "Blog y recursos", "Casos de éxito", "Trabaja con nosotros"].map(
+              {["Quiénes somos", "Instructores", "Blog y recursos", "Casos de éxito", "Trabaja con nosotros"].map(
                 (item) => (
                   <li key={item}>
                     <a href="#nosotros" className="hover:text-[#c9a227] transition-colors duration-150 flex items-center gap-2">
@@ -100,7 +100,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-xs tracking-wide">© 2024 Minilista Industrial · Todos los derechos reservados.</p>
+          <p className="text-xs tracking-wide">©2026 Formación Empresarial · Todos los derechos reservados.</p>
           <div className="flex gap-6 text-xs">
             <a href="#" className="hover:text-[#c9a227] transition-colors">Aviso de privacidad</a>
             <a href="#" className="hover:text-[#c9a227] transition-colors">Términos de uso</a>

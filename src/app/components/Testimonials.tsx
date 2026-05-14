@@ -19,7 +19,7 @@ const testimonials = [
     sector: "Retail",
     rating: 5,
     quote:
-      "Pensé que era difícil capacitar a gente con poca experiencia formal, pero Minilista Industrial tiene un método muy práctico. Mi equipo aprendió con ejemplos de su propio trabajo. Fue increíble el cambio.",
+      "Pensé que era difícil capacitar a gente con poca experiencia formal, pero Formación Empresarial tiene un método muy práctico. Mi equipo aprendió con ejemplos de su propio trabajo. Fue increíble el cambio.",
     avatar: "LJ",
   },
   {

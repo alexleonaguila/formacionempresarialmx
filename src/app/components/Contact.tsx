@@ -1,28 +1,36 @@
 import { useState } from "react";
 import { Phone, Mail, MapPin, ArrowRight, CheckCircle } from "lucide-react";
 
-const sectors = [
-  "Manufactura & Producción",
-  "Retail & Comercio",
-  "Restaurantes & Hostelería",
-  "Construcción",
-  "Tecnología",
-  "Agroempresarial",
-  "Logística & Transporte",
-  "Otro",
-];
-
 export function Contact() {
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", company: "", sector: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", company: "", email: "", phone: "", message: "" });
+      } else {
+        console.error('Error al enviar el formulario');
+        alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
+    }
   };
 
   return (
@@ -59,14 +67,14 @@ export function Contact() {
             </h2>
 
             <p className="text-gray-400 mb-10 leading-relaxed" style={{ fontSize: "0.95rem", fontWeight: 300 }}>
-              Cuéntanos sobre tu empresa. Un asesor especializado en tu giro se pondrá en contacto contigo en menos de 24 horas para recomendarte el programa ideal.
+              ¿Te gustaría que colaboremos en algún proyecto en tu empresa? 🏆 Déjanos tus datos y te contactaremos en breve. ¡Estamos listos para impulsar tu empresa al siguiente nivel! 🚀
             </p>
 
             <div className="space-y-6 mb-12">
               {[
-                { icon: Phone, label: "Teléfono", value: "+52 (81) 1234-5678" },
-                { icon: Mail, label: "Correo electrónico", value: "info@minilistaindustrial.mx" },
-                { icon: MapPin, label: "Ubicación", value: "Monterrey, N.L. — Cobertura nacional" },
+                { icon: Phone, label: "Teléfono", value: "+52 9988958521" },
+                { icon: Mail, label: "Correo electrónico", value: "info@formacionempresarialmx.com" },
+                { icon: MapPin, label: "Ubicación", value: "Playa del Carmen, Quintana Roo." },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-5">
                   <div className="w-10 h-10 border border-[#c9a227]/30 flex items-center justify-center shrink-0">
@@ -80,21 +88,7 @@ export function Contact() {
               ))}
             </div>
 
-            {/* Corporate callout */}
-            <div className="border border-[#c9a227]/25 p-6 relative">
-              <div className="absolute top-0 left-0 w-10 h-0.5 bg-[#c9a227]" />
-              <p className="text-white font-medium mb-2 text-sm">Plan corporativo para equipos</p>
-              <p className="text-gray-500 text-sm mb-4" style={{ fontWeight: 300 }}>
-                Capacita a grupos desde 5 personas con tarifas especiales, facturación empresarial y opción in-company.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Grupos desde 5 personas", "Facturación empresarial", "In-company"].map((t) => (
-                  <span key={t} className="text-xs border border-[#c9a227]/30 text-[#c9a227] px-3 py-1 tracking-wide">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
+          
           </div>
 
           {/* Form */}
@@ -155,21 +149,7 @@ export function Contact() {
                   ))}
                 </div>
 
-                <div>
-                  <label className="text-gray-500 text-xs tracking-[0.1em] uppercase mb-1.5 block">Giro empresarial</label>
-                  <select
-                    required
-                    name="sector"
-                    value={form.sector}
-                    onChange={handleChange}
-                    className="w-full bg-black border border-white/10 focus:border-[#c9a227]/50 px-4 py-2.5 text-sm text-white focus:outline-none transition-colors"
-                  >
-                    <option value="" className="bg-black">Selecciona tu giro</option>
-                    {sectors.map((s) => (
-                      <option key={s} value={s} className="bg-black">{s}</option>
-                    ))}
-                  </select>
-                </div>
+                
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   {[

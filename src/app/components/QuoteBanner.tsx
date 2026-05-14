@@ -28,7 +28,7 @@ export function QuoteBanner() {
         </p>
         <div className="flex items-center justify-center gap-3">
           <div className="h-px w-12 bg-black/40" />
-          <span className="text-black/70 text-xs tracking-[0.3em] uppercase">Minilista Industrial</span>
+          <span className="text-black/70 text-xs tracking-[0.3em] uppercase">Formación Empresarial MX</span>
           <div className="h-px w-12 bg-black/40" />
         </div>
       </div>

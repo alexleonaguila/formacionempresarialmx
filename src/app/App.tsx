@@ -2,9 +2,7 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { QuoteBanner } from "./components/QuoteBanner";
 import { About } from "./components/About";
-import { Sectors } from "./components/Sectors";
 import { Courses } from "./components/Courses";
-import { HowItWorks } from "./components/HowItWorks";
 import { CtaBanner } from "./components/CtaBanner";
 import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
@@ -18,9 +16,7 @@ export default function App() {
         <Hero />
         <QuoteBanner />
         <About />
-        <Sectors />
         <Courses />
-        <HowItWorks />
         <CtaBanner />
         <Testimonials />
         <Contact />

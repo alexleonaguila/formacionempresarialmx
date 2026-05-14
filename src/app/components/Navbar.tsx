@@ -16,7 +16,6 @@ export function Navbar() {
     { label: "INICIO", href: "#inicio" },
     { label: "CURSOS", href: "#cursos" },
     { label: "NOSOTROS", href: "#nosotros" },
-    { label: "METODOLOGÍA", href: "#metodologia" },
     { label: "TESTIMONIOS", href: "#testimonios" },
   ];
 
