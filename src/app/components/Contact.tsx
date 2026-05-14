@@ -12,19 +12,23 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          subject: `Nueva solicitud de información de ${form.name}`,
+          from_name: 'Formación Empresarial MX',
+          ...form,
+        }),
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
         setSent(true);
         setForm({ name: "", company: "", email: "", phone: "", message: "" });
       } else {
-        console.error('Error al enviar el formulario');
         alert('Error al enviar el formulario. Por favor, intenta de nuevo.');
       }
     } catch (error) {
