@@ -113,18 +113,13 @@ export function About() {
               </div>
               {/* Floating stat */}
               <div className="absolute bottom-6 left-6 bg-black/90 border-l-2 border-[#c9a227] px-5 py-4">
-                <p
-                  className="text-[#c9a227]"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2.8rem", lineHeight: 1 }}
-                >
-                  500+
-                </p>
+               
                 <p className="text-gray-400 text-xs tracking-[0.15em] uppercase mt-1">Empresas transformadas</p>
               </div>
             </div>
 
             {/* Text */}
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 reveal">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px w-12 bg-[#c9a227]" />
                 <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>

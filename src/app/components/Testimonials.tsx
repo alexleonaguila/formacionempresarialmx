@@ -65,7 +65,7 @@ export function Testimonials() {
   return (
     <section id="testimonios" className="bg-black py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center gap-3 mb-16">
+        <div className="flex items-center gap-3 mb-16 reveal">
           <div className="h-px w-12 bg-[#c9a227]" />
           <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>
             Testimonios

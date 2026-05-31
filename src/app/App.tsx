@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { QuoteBanner } from "./components/QuoteBanner";
 import { About } from "./components/About";
 import { Courses } from "./components/Courses";
+import { Gallery } from "./components/Gallery";
 import { CtaBanner } from "./components/CtaBanner";
 import { Testimonials } from "./components/Testimonials";
 import { Contact } from "./components/Contact";
@@ -18,15 +20,59 @@ function WaIcon() {
   );
 }
 
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-[200] h-[2px] bg-transparent pointer-events-none">
+      <div
+        className="h-full bg-[#c9a227] transition-none origin-left shadow-[0_0_8px_rgba(201,162,39,0.7)]"
+        style={{ width: `${progress}%` }}
+      />
+    </div>
+  );
+}
+
 export default function App() {
+  // Global scroll-reveal observer — activa `.in-view` en cualquier `.reveal*`
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal, .reveal-left, .reveal-scale");
+    if (!els.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in-view");
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-black" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <ScrollProgressBar />
       <Navbar />
       <main>
         <Hero />
         <QuoteBanner />
         <About />
         <Courses />
+        <Gallery />
         <CtaBanner />
         <Testimonials />
         <Contact />
@@ -38,7 +84,7 @@ export default function App() {
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Me gustaría conocer más sobre los cursos de formación.")}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#1ebe5d] rounded-full flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-110"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-[#25D366] hover:bg-[#1ebe5d] rounded-full flex items-center justify-center shadow-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-110 wa-pulse"
         title="Chatea con nosotros"
       >
         <WaIcon />

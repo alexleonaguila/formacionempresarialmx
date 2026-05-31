@@ -14,7 +14,7 @@ export function CtaBanner() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/50 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a227]/30 to-transparent" />
 
-      <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+      <div className="relative max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="h-px w-12 bg-[#c9a227]" />
           <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>

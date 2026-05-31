@@ -15,7 +15,7 @@ export function QuoteBanner() {
         "
       </div>
 
-      <div className="relative max-w-4xl mx-auto text-center">
+      <div className="relative max-w-4xl mx-auto text-center reveal">
         <p
           className="text-black uppercase leading-tight mb-4"
           style={{

@@ -105,11 +105,11 @@ export function Courses() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
+          <div className="reveal">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-px w-12 bg-[#c9a227]" />
               <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>
-                Servicios
+                Cursos
               </span>
             </div>
             <h2
