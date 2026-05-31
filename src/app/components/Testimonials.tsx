@@ -63,9 +63,9 @@ export function Testimonials() {
   const t = testimonials[current];
 
   return (
-    <section id="testimonios" className="bg-black py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center gap-3 mb-16 reveal">
+    <section id="testimonios" className="bg-black py-12 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex items-center gap-3 mb-8 lg:mb-16 reveal">
           <div className="h-px w-12 bg-[#c9a227]" />
           <span className="text-[#c9a227] tracking-[0.3em] uppercase" style={{ fontSize: "0.7rem" }}>
             Testimonios
@@ -73,13 +73,13 @@ export function Testimonials() {
         </div>
 
         {/* Main testimonial spotlight */}
-        <div className="grid lg:grid-cols-3 gap-0 border border-white/8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-white/8">
           {/* Big quote side */}
-          <div className="lg:col-span-2 p-10 lg:p-14 border-b lg:border-b-0 lg:border-r border-white/8 relative">
+          <div className="lg:col-span-2 p-4 sm:p-6 lg:p-14 border-b lg:border-b-0 lg:border-r border-white/8 relative">
             {/* Decorative quote mark */}
             <div
               className="absolute top-6 right-8 text-white/4 select-none"
-              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "10rem", lineHeight: 1 }}
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(5rem, 15vw, 10rem)", lineHeight: 1 }}
             >
               "
             </div>
@@ -92,37 +92,37 @@ export function Testimonials() {
 
             <blockquote
               className="text-white leading-relaxed mb-10 relative z-10"
-              style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)", fontWeight: 300, fontStyle: "italic" }}
+              style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)", fontWeight: 300, fontStyle: "italic" }}
             >
               "{t.quote}"
             </blockquote>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-[#c9a227] flex items-center justify-center shrink-0">
-                <span className="text-black font-black text-sm">{t.avatar}</span>
+            <div className="flex items-center gap-2 sm:gap-4 flex-wrap sm:flex-nowrap">
+              <div className="w-10 sm:w-12 h-10 sm:h-12 bg-[#c9a227] flex items-center justify-center shrink-0">
+                <span className="text-black font-black text-xs sm:text-sm">{t.avatar}</span>
               </div>
-              <div>
-                <p className="text-white font-medium text-sm">{t.name}</p>
-                <p className="text-gray-500 text-xs mt-0.5">{t.role}</p>
+              <div className="min-w-0 flex-1">
+                <p className="text-white font-medium text-xs sm:text-sm">{t.name}</p>
+                <p className="text-gray-500 text-xs mt-0.5 line-clamp-2">{t.role}</p>
               </div>
-              <span className="ml-auto border border-[#c9a227]/40 text-[#c9a227] text-xs px-3 py-1 tracking-widest uppercase">
+              <span className="border border-[#c9a227]/40 text-[#c9a227] text-xs px-2 sm:px-3 py-1 tracking-widest uppercase whitespace-nowrap shrink-0">
                 {t.sector}
               </span>
             </div>
           </div>
 
           {/* Navigation + all testimonials */}
-          <div className="flex flex-col">
+          <div className="flex flex-col max-h-96 lg:max-h-none">
             {testimonials.map((item, i) => (
               <button
                 key={item.id}
                 onClick={() => setCurrent(i)}
-                className={`flex items-start gap-4 p-6 text-left border-b border-white/5 transition-all duration-200 ${
+                className={`flex items-start gap-2 sm:gap-4 p-3 sm:p-6 text-left border-b border-white/5 transition-all duration-200 ${
                   i === current ? "bg-[#c9a227]/8 border-l-2 border-l-[#c9a227]" : "hover:bg-white/3"
                 }`}
               >
                 <div
-                  className={`w-9 h-9 shrink-0 flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
+                  className={`w-8 sm:w-9 h-8 sm:h-9 shrink-0 flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
                     i === current ? "bg-[#c9a227] text-black" : "bg-white/10 text-gray-400"
                   }`}
                 >
@@ -130,7 +130,7 @@ export function Testimonials() {
                 </div>
                 <div className="min-w-0">
                   <p
-                    className={`text-sm font-medium truncate transition-colors duration-200 ${
+                    className={`text-xs sm:text-sm font-medium truncate transition-colors duration-200 ${
                       i === current ? "text-[#c9a227]" : "text-gray-400"
                     }`}
                   >
@@ -145,28 +145,28 @@ export function Testimonials() {
             <div className="flex mt-auto">
               <button
                 onClick={prev}
-                className="flex-1 py-4 border-r border-white/8 flex items-center justify-center text-gray-500 hover:text-[#c9a227] hover:bg-[#c9a227]/5 transition-all duration-200"
+                className="flex-1 py-3 sm:py-4 border-r border-white/8 flex items-center justify-center text-gray-500 hover:text-[#c9a227] hover:bg-[#c9a227]/5 transition-all duration-200"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={18} className="sm:w-5 sm:h-5" />
               </button>
               <button
                 onClick={next}
-                className="flex-1 py-4 flex items-center justify-center text-gray-500 hover:text-[#c9a227] hover:bg-[#c9a227]/5 transition-all duration-200"
+                className="flex-1 py-3 sm:py-4 flex items-center justify-center text-gray-500 hover:text-[#c9a227] hover:bg-[#c9a227]/5 transition-all duration-200"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={18} className="sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Logos / companies */}
-        <div className="mt-14 pt-10 border-t border-white/5">
-          <p className="text-gray-600 text-xs tracking-[0.3em] uppercase text-center mb-10">
+        <div className="mt-8 lg:mt-14 pt-6 lg:pt-10 border-t border-white/5">
+          <p className="text-gray-600 text-xs tracking-[0.3em] uppercase text-center mb-6 lg:mb-10">
             Empresas que confían en nosotros
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 lg:gap-x-10 lg:gap-y-8">
             {brands.map(({ url, name }) => (
-              <div key={name} className="flex items-center justify-center w-32 h-12">
+              <div key={name} className="flex items-center justify-center w-24 sm:w-28 lg:w-32 h-10 sm:h-11 lg:h-12">
                 <img
                   src={url}
                   alt={name}
