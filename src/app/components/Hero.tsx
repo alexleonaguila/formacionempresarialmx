@@ -31,7 +31,7 @@ export function Hero() {
               className="text-[#c9a227] tracking-[0.35em] uppercase"
               style={{ fontSize: "0.7rem" }}
             >
-              Liderazgo para PyMEs · México
+              Liderazgo para cualquier sector empresarial
             </span>
           </div>
 
@@ -57,7 +57,7 @@ export function Hero() {
             className="text-gray-300 mb-10 max-w-xl leading-relaxed"
             style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", fontWeight: 300, letterSpacing: "0.02em" }}
           >
-            Programas de liderazgo diseñados para el ritmo real de las pequeñas y medianas empresas. Cada industria. Cada equipo. Cada resultado.
+            Contamos con programas de formación, liderazgo y gestión de cambio y cultura organizacional adaptados al ADN de tu empresa. Sin importar el tamaño, transformamos la cultura de tu equipo para asegurar cada resultado.
           </p>
 
           {/* CTAs */}
@@ -79,10 +79,10 @@ export function Hero() {
           {/* Stats */}
           <div className="flex flex-wrap gap-10">
             {[
-              { n: "500+", label: "Empresas formadas" },
-              { n: "12", label: "Giros industriales" },
+              { n: "Muchas", label: "Empresas formadas" },
+              { n: "Todos", label: "Giros industriales" },
               { n: "98%", label: "Satisfacción" },
-              { n: "10+", label: "Años de experiencia" },
+              { n: "15+", label: "Años de experiencia" },
             ].map((s) => (
               <div key={s.label}>
                 <p

@@ -1,5 +1,11 @@
 import { CheckCircle } from "lucide-react";
 import img2 from "../../imports/2.png";
+import instructor1 from "../../img/instructores/1.webp";
+import instructor2 from "../../img/instructores/2.webp";
+import instructor3 from "../../img/instructores/3.webp";
+import instructor4 from "../../img/instructores/4.webp";
+import instructor5 from "../../img/instructores/5.webp";
+import instructor6 from "../../img/instructores/6.webp";
 
 const pillars = [
   "Más de 15 años de experiencia en capacitación y desarrollo organizacional",
@@ -24,10 +30,65 @@ const resultados = [
   "Equipos de liderazgo y supervisores más preparados para gestionar el cambio e innovación",
 ];
 
-const instructorExpertise = [
-  "Certificaciones en Cultura Organizacional",
-  "Liderazgo en formación y desarrollo empresarial",
-  "Especialista en servicio al cliente con estándares 5 Diamantes A",
+const instructors = [
+  {
+    img: instructor1,
+    name: "Hugo Estrada",
+    titles: [
+      "Consultor Señor, Teambuilder y Formador Empresarial",
+      "CEO de Formacion Empresarial MX",
+      "Gerente de Relación con Clientes en Great Place to Work®",
+    ],
+    bio: "Hugo Estrada cuenta con más de 18 años de experiencia liderando la evolución del clima y la cultura laboral en entornos de alta exigencia. En su rol como Gerente Corporativo de Formación, se ha especializado en el desarrollo de talento para el sector hotelero y corporativo, coordinando certificaciones internacionales como Great Place to Work, ESR y Rainforest Alliance. Su gestión ha sido clave en el blindaje operativo y de servicio (Distintivo H, CRISTAL, Martí) para marcas de lujo y cadenas 5 Diamantes, transformando equipos de trabajo en activos de alta rentabilidad.",
+  },
+  {
+    img: instructor2,
+    name: "Verónica Rubio",
+    titles: [
+      "Consultora Señor en Bienestar y Salud Terapéutica",
+      "Directora de SPA Balance by Marea Condos",
+    ],
+    bio: "Verónica Rubio cuenta con una destacada trayectoria de más de 18 años liderando el sector de hospitalidad y bienestar en México y el Caribe. Experta en el diseño estratégico y operación de SPAs, se especializa en capacitar equipos comerciales enfocados en la comercialización de servicios adicionales y experiencias premium dentro del segmento todo incluido, asegurando altos estándares de calidad, eficiencia y rentabilidad.",
+  },
+  {
+    img: instructor3,
+    name: "Carlos Rodríguez",
+    titles: [
+      "Consultor Señor y Formador Empresarial",
+      "CEO de CRH Consulting",
+      "Gerente de Relación con Clientes en Great Place to Work",
+    ],
+    bio: "Carlos Eduardo Rodríguez es un experimentado consultor e instructor empresarial con 18 años de trayectoria en el desarrollo de talento y transformación organizacional. Especialista en liderazgo, comunicación y hospitalidad, ha liderado importantes proyectos de formación en México y el Caribe. Su gestión se centra en potenciar el desempeño de equipos ejecutivos y de alto rendimiento. Actualmente aporta su sólida experiencia como Gerente de Relación con Clientes y Especialista en Formación en Great Place to Work® México, impulsando culturas de excelencia y servicio.",
+  },
+  {
+    img: instructor4,
+    name: "INGRYD LÓPEZ",
+    titles: [
+      "Consultora y Formadora Empresarial",
+      "Experta en Reclutamiento y Selección Corporativa",
+      "CEO de RH Visión Talent",
+    ],
+    bio: "Ingrid López cuenta con una sólida trayectoria de 14 años especializándose en la atracción y selección de talento ejecutivo y operativo para corporativos de alta exigencia. Su experiencia técnica incluye el paso por firmas líderes como AMResorts y Grupo Barceló, donde demostró su capacidad de liderazgo al administrar plantillas de hasta 4,000 empleados y dirigir reclutamientos masivos a gran escala. Experta en capacitar y estructurar departamentos de Recursos Humanos desde cero, actualmente se desempeña como consultora empresarial y facilitadora de Teambuilding, transformando la gestión del talento en ventajas competitivas para las organizaciones.",
+  },
+  {
+    img: instructor5,
+    name: "MARÍA FERNANDA MORÁN",
+    titles: [
+      "Especialista en Recursos Humanos y Capacitación",
+      "Teambuilder y Formadora en Formación Empresarial MX",
+    ],
+    bio: "María Fernanda Morán cuenta con 10 años de experiencia transformando equipos de trabajo a través del reclutamiento estratégico y la formación continua en organizaciones de gran escala. Su especialidad radica en el diagnóstico y diseño de cursos a la medida, enfocados en elevar los niveles de calidad en el servicio y atención al cliente. Como facilitadora y teambuilder, María Fernanda complementa su experiencia con el desarrollo de programas de contenido especializado en acompañamiento femenino, promoviendo culturas laborales más equitativas, motivadas y de alto rendimiento.",
+  },
+  {
+    img: instructor6,
+    name: "CLAUDIA VAZQUÉZ",
+    titles: [
+      "Especialista en Grupos y Actividades de Aventura",
+      "Teambuilder y Formadora",
+      "En Formación Empresarial MX",
+    ],
+    bio: "Claudia Vázquez es una apasionada facilitadora de Teambuilding e instructora empresarial, experta en diseñar dinámicas basadas en retos físicos y estratégicos que impulsan la cohesión de los equipos. Su sólida experiencia abarca la dirección de grupos, la gestión de convenciones y el desarrollo de estrategias de fidelización y atención a clientes en el sector turístico y corporativo. Tras liderar diversas áreas de operación y servicio en importantes empresas, hoy enfoca todo su conocimiento como consultora y formadora, ayudando a las organizaciones a estructurar equipos altamente comunicativos, adaptables y orientados a resultados a través del aprendizaje vivencial.",
+  },
 ];
 
 export function About() {
@@ -81,7 +142,7 @@ export function About() {
               >
                 Formamos líderes
                 <br />
-                <span className="text-[#c9a227]">que mueven empresas</span>
+                <span className="text-[#c9a227]">que transforman culturas y mueven empresas.</span>
               </h2>
 
               <p className="text-gray-400 leading-relaxed mb-4" style={{ fontSize: "0.95rem", fontWeight: 300 }}>
@@ -183,18 +244,41 @@ export function About() {
               Nuestros instructores
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mt-6" style={{ fontSize: "0.95rem" }}>
-              Contamos con expertos certificados en las áreas clave del desarrollo empresarial
+              Contamos con expertos en las áreas clave del desarrollo empresarial
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {instructorExpertise.map((expertise, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-[#c9a227]/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-[#c9a227]/40">
-                  <span className="text-[#c9a227] text-2xl">🏆</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {instructors.map((instructor, index) => (
+              <div key={index} className="bg-[#111111] border border-[#c9a227]/20 overflow-hidden group hover:border-[#c9a227]/50 transition-all duration-300">
+                {/* Photo */}
+                <div className="relative overflow-hidden" style={{ height: "320px" }}>
+                  <img
+                    src={instructor.img}
+                    alt={instructor.name}
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="text-white font-semibold mb-2">{expertise}</h3>
-                <p className="text-gray-400 text-sm">Experiencia directa en el sector empresarial mexicano</p>
+                {/* Info */}
+                <div className="p-6">
+                  <div className="h-px w-8 bg-[#c9a227] mb-4" />
+                  <h3
+                    className="text-white uppercase mb-2"
+                    style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "1.4rem", letterSpacing: "0.05em" }}
+                  >
+                    {instructor.name}
+                  </h3>
+                  <div className="mb-4 space-y-0.5">
+                    {instructor.titles.map((title, i) => (
+                      <p key={i} className="text-[#c9a227] font-semibold italic" style={{ fontSize: "0.72rem", letterSpacing: "0.05em" }}>
+                        {title}
+                      </p>
+                    ))}
+                  </div>
+                  <p className="text-gray-400 leading-relaxed" style={{ fontSize: "0.82rem" }}>
+                    {instructor.bio}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

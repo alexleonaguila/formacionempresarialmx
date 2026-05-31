@@ -8,7 +8,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 border-2 border-[#c9a227] flex items-center justify-center">
+              <div className="w-10 h-10  flex items-center justify-center">
                 <img src={logoImg} alt="Formación Empresarial" className="h-10" />
               </div>
               <div className="leading-none">
@@ -24,13 +24,20 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ fontWeight: 300 }}>
-              Liderazgo práctico para pequeñas y medianas empresas en todos los giros industriales de México.
+              Liderazgo con sentido humano para todo tipo de empresas. Maximizamos el talento y la cultura de tu equipo, sin importar tu sector. 
             </p>
             <div className="flex gap-3">
-              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/Formacionempresarialmx" },
+                { Icon: Instagram, href: "#" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/consultoriayformacionempresarial" },
+                { Icon: Youtube, href: "#" },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 border border-white/10 hover:border-[#c9a227]/50 flex items-center justify-center transition-all duration-200 group"
                 >
                   <Icon size={14} className="text-gray-600 group-hover:text-[#c9a227] transition-colors" />
@@ -47,7 +54,7 @@ export function Footer() {
                 "Liderazgo",
                 "Atención y Servicio al Cliente",
                 "Desarrollo de Mandos Medios y Gerenciales",
-                "SPA y Bienestar de Colaboradores",
+                "Formación de instructores",
                 "Team Building",
                 "Kick Off Empresariales",
               ].map((item) => (
@@ -82,7 +89,7 @@ export function Footer() {
           <div>
             <h4 className="text-white text-xs tracking-[0.2em] uppercase mb-5">Boletín empresarial</h4>
             <p className="text-sm mb-5 leading-relaxed" style={{ fontWeight: 300 }}>
-              Recursos gratuitos sobre liderazgo y gestión de PyMEs cada semana.
+              Recursos gratuitos sobre liderazgo y gestión para Empresas.
             </p>
             <div className="flex">
               <input
@@ -94,7 +101,7 @@ export function Footer() {
                 <ArrowRight size={16} />
               </button>
             </div>
-            <p className="text-xs mt-3 text-gray-700">Sin spam. Cancela cuando quieras.</p>
+            <p className="text-xs mt-3 text-gray-700">Cancela cuando quieras.</p>
           </div>
         </div>
 

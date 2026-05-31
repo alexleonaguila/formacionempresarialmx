@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
+const brandModules = import.meta.glob('../../img/marcas/*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
+const brands = Object.entries(brandModules).map(([path, url]) => ({
+  url,
+  name: (path.split('/').pop() ?? '').replace(/\.[^.]+$/, ''),
+}));
+
 const testimonials = [
   {
     id: 1,
@@ -150,20 +161,20 @@ export function Testimonials() {
 
         {/* Logos / companies */}
         <div className="mt-14 pt-10 border-t border-white/5">
-          <p className="text-gray-600 text-xs tracking-[0.3em] uppercase text-center mb-8">
+          <p className="text-gray-600 text-xs tracking-[0.3em] uppercase text-center mb-10">
             Empresas que confían en nosotros
           </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            {["Metálicos del Norte", "Grupo Gastro Mx", "Torres & Asoc.", "Distribuidora JH", "AgroMex Coop", "TechPyME MX"].map(
-              (name) => (
-                <div
-                  key={name}
-                  className="px-6 py-2.5 border border-white/8 hover:border-[#c9a227]/40 text-gray-500 hover:text-[#c9a227] text-xs tracking-[0.15em] uppercase transition-all duration-200"
-                >
-                  {name}
-                </div>
-              )
-            )}
+          <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8">
+            {brands.map(({ url, name }) => (
+              <div key={name} className="flex items-center justify-center w-32 h-12">
+                <img
+                  src={url}
+                  alt={name}
+                  className="max-h-full max-w-full object-contain opacity-40 hover:opacity-80 transition-opacity duration-300"
+                  style={{ filter: 'grayscale(1) invert(1)', mixBlendMode: 'screen' }}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

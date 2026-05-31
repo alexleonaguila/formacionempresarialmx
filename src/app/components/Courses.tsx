@@ -6,7 +6,7 @@ import img5 from "../../img/5.webp";
 import img1 from "../../img/1.webp";
 import img2 from "../../imports/2.png";
 
-const categories = ["Todos", "Liderazgo", "Servicio al Cliente", "Desarrollo Gerencial", "Bienestar", "Team Building", "Estrategia"];
+const categories = ["Todos", "Liderazgo", "Servicio al Cliente", "Desarrollo Gerencial", "Formación", "Team Building", "Estrategia"];
 
 const services = [
   {
@@ -53,16 +53,16 @@ const services = [
   },
   {
     id: 4,
-    title: "SPA y Bienestar de Colaboradores",
-    category: "Bienestar",
-    description: "Programas diseñados para elevar la calidad del servicio en spas y promover bienestar holístico.",
+    title: "Formación de instructores",
+    category: "Formación",
+    description: "Desarrollamos las competencias pedagógicas y oratoria que tus expertos necesitan para transmitir conocimiento con impacto, claridad y liderazgo.",
     img: img1,
     featured: false,
     highlights: [
-      "Técnicas terapéuticas y de relajación aplicadas al contexto SPA",
-      "Atención al cliente en entornos de lujo y personalización",
-      "Gestión operativa del SPA y estándares de calidad",
-      "Prácticas vivenciales en escenarios reales o simulados",
+      "Técnicas de Andragogía: Modelos de aprendizaje especializado para la enseñanza y capacitación de adultos.",
+      "Oratoria y Comunicación Asertiva: Dominio de la voz, lenguaje corporal y técnicas avanzadas para hablar frente a un grupo.",
+      "Manejo Dinámico de Grupos: Estrategias de control, facilitación y resolución de objeciones en el aula.",
+      "Diseño Curricular Estructurado: Metodología para la creación de materiales didácticos, objetivos y herramientas de evaluación.",
     ],
   },
   {
@@ -120,9 +120,9 @@ export function Courses() {
                 letterSpacing: "0.03em",
               }}
             >
-              Programas que
+              PROGRAMAS DE FORMACIÓN 
               <br />
-              <span className="text-[#c9a227]">transforman organizaciones</span>
+              <span className="text-[#c9a227]">QUE TRANSFORMAN ORGANIZACIONES</span>
             </h2>
           </div>
           <a

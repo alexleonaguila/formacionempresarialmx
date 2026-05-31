@@ -24,7 +24,7 @@ export function QuoteBanner() {
             letterSpacing: "0.04em",
           }}
         >
-          El liderazgo no es un título. Es una decisión que tomas cada día.
+          El liderazgo no es un cargo; es una decisión diaria que redefine la cultura de tu empresa.
         </p>
         <div className="flex items-center justify-center gap-3">
           <div className="h-px w-12 bg-black/40" />

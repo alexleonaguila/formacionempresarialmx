@@ -31,13 +31,13 @@ export function CtaBanner() {
             letterSpacing: "0.03em",
           }}
         >
-          Tu empresa merece
+          Cambiemos el mundo empezando por nosotros mismos  
           <br />
-          <span className="text-[#c9a227]">líderes de verdad</span>
+          <span className="text-[#c9a227]">un paso a la vez.</span>
         </h2>
 
         <p className="text-gray-300 mb-10 max-w-xl mx-auto leading-relaxed" style={{ fontWeight: 300 }}>
-          Únete a las más de 500 empresas que ya transformaron su manera de liderar. El primer paso es una llamada sin costo.
+          Únete a las empresas que ya transformaron su manera de liderar. El primer paso es una llamada sin costo.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

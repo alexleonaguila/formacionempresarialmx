@@ -130,7 +130,7 @@ export function Contact() {
                   Solicita información
                 </h3>
                 <p className="text-gray-600 text-xs tracking-wide mb-6">
-                  Sin costo. Sin compromiso. Solo resultados.
+                  Cotiza sin compromiso
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-4">

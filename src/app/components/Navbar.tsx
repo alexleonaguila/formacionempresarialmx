@@ -14,8 +14,8 @@ export function Navbar() {
 
   const links = [
     { label: "INICIO", href: "#inicio" },
+     { label: "NOSOTROS", href: "#nosotros" },
     { label: "CURSOS", href: "#cursos" },
-    { label: "NOSOTROS", href: "#nosotros" },
     { label: "TESTIMONIOS", href: "#testimonios" },
   ];
 
@@ -27,9 +27,9 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          {/* Logo */}.
           <a href="#inicio" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 border-2 border-[#c9a227] flex items-center justify-center">
+            <div className="w-10 h-10  flex items-center justify-center">
                   <img src={logoImg} alt="Formación Empresarial" className="h-10" />
             </div>
             <div className="leading-none">
