@@ -35,7 +35,7 @@ const instructors = [
     img: instructor1,
     name: "Hugo Estrada",
     titles: [
-      "Consultor Señor, Teambuilder y Formador Empresarial",
+      "Consultor Senior, Teambuilder y Formador Empresarial",
       "CEO de Formacion Empresarial MX",
       "Gerente de Relación con Clientes en Great Place to Work®",
     ],
@@ -54,7 +54,7 @@ const instructors = [
     img: instructor3,
     name: "Carlos Rodríguez",
     titles: [
-      "Consultor Señor y Formador Empresarial",
+      "Consultor Senior y Formador Empresarial",
       "CEO de CRH Consulting",
       "Gerente de Relación con Clientes en Great Place to Work",
     ],
