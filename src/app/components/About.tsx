@@ -85,7 +85,7 @@ const instructors = [
     titles: [
       "Especialista en Grupos y Actividades de Aventura",
       "Teambuilder y Formadora",
-      "En Formación Empresarial MX",
+      "en Formación Empresarial MX",
     ],
     bio: "Claudia Vázquez es una apasionada facilitadora de Teambuilding e instructora empresarial, experta en diseñar dinámicas basadas en retos físicos y estratégicos que impulsan la cohesión de los equipos. Su sólida experiencia abarca la dirección de grupos, la gestión de convenciones y el desarrollo de estrategias de fidelización y atención a clientes en el sector turístico y corporativo. Tras liderar diversas áreas de operación y servicio en importantes empresas, hoy enfoca todo su conocimiento como consultora y formadora, ayudando a las organizaciones a estructurar equipos altamente comunicativos, adaptables y orientados a resultados a través del aprendizaje vivencial.",
   },
