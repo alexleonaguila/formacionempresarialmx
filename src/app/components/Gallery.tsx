@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 // ── Importación automática de imágenes por carpeta (Vite glob) ──────────────
@@ -133,24 +133,137 @@ function GalleryCard({
 }) {
   return (
     <div
-      className="group relative overflow-hidden cursor-pointer bg-neutral-900"
+      className="group relative overflow-hidden cursor-pointer bg-neutral-900 aspect-[4/3]"
       onClick={() => onOpen(index)}
-      style={{ breakInside: "avoid", marginBottom: "0.5rem" }}
     >
       <img
         src={src}
         alt={`Foto ${index + 1}`}
         loading="lazy"
-        className="w-full block object-cover transition-transform duration-700 group-hover:scale-105"
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
       />
-      {/* Overlay hover */}
       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-400 flex items-center justify-center">
         <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white">
           <ZoomIn size={28} />
         </span>
       </div>
-      {/* Borde dorado inferior animado */}
       <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#c9a227] group-hover:w-full transition-all duration-500" />
+    </div>
+  );
+}
+
+// ── Slider de imágenes ────────────────────────────────────────────────────────
+function GallerySlider({
+  images,
+  onOpen,
+}: {
+  images: string[];
+  onOpen: (i: number) => void;
+}) {
+  const [index, setIndex] = useState(0);
+  const [perView, setPerView] = useState(3);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setPerView(w < 640 ? 1 : w < 1024 ? 2 : 3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // Reiniciar al cambiar categoría o perView
+  useEffect(() => { setIndex(0); }, [images, perView]);
+
+  const maxIndex = Math.max(0, images.length - perView);
+  const prev = () => setIndex((i) => Math.max(0, i - 1));
+  const next = () => setIndex((i) => Math.min(maxIndex, i + 1));
+
+  // Navegación con teclado solo cuando el slider está enfocado
+  const handleKey = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    },
+    [index, maxIndex]
+  );
+
+  if (images.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-48 text-gray-600 text-sm tracking-wider">
+        Sin imágenes en esta categoría
+      </div>
+    );
+  }
+
+  const slideWidth = 100 / perView;
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative outline-none"
+      tabIndex={0}
+      onKeyDown={handleKey}
+    >
+      {/* Track */}
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${index * slideWidth}%)` }}
+        >
+          {images.map((src, i) => (
+            <div
+              key={src}
+              className="flex-none px-1.5"
+              style={{ width: `${slideWidth}%` }}
+            >
+              <GalleryCard src={src} index={i} onOpen={onOpen} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Flechas */}
+      {images.length > perView && (
+        <>
+          <button
+            disabled={index === 0}
+            onClick={prev}
+            aria-label="Anterior"
+            className="absolute -left-5 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/80 border border-white/10 hover:border-[#c9a227]/60 text-white/60 hover:text-[#c9a227] transition-all duration-200 disabled:opacity-20 disabled:cursor-not-allowed z-10"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            disabled={index >= maxIndex}
+            onClick={next}
+            aria-label="Siguiente"
+            className="absolute -right-5 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-black/80 border border-white/10 hover:border-[#c9a227]/60 text-white/60 hover:text-[#c9a227] transition-all duration-200 disabled:opacity-20 disabled:cursor-not-allowed z-10"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </>
+      )}
+
+      {/* Dots */}
+      {images.length > perView && (
+        <div className="flex justify-center items-center gap-2 mt-7">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir a slide ${i + 1}`}
+              className={`h-[2px] rounded-full transition-all duration-300 ${
+                i === index
+                  ? "w-8 bg-[#c9a227]"
+                  : "w-4 bg-white/20 hover:bg-white/40"
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -206,19 +319,12 @@ export function Gallery() {
           ))}
         </div>
 
-        {/* ── Grid masonry ── */}
-        <div
-          className="columns-2 md:columns-3 lg:columns-4 gap-2"
-          style={{ columnGap: "0.5rem" }}
-        >
-          {currentImages.map((src, i) => (
-            <GalleryCard
-              key={src}
-              src={src}
-              index={i}
-              onOpen={(idx) => setLightbox({ images: currentImages, index: idx })}
-            />
-          ))}
+        {/* ── Slider ── */}
+        <div className="px-6">
+          <GallerySlider
+            images={currentImages}
+            onOpen={(idx) => setLightbox({ images: currentImages, index: idx })}
+          />
         </div>
 
         {/* ── Línea decorativa inferior ── */}
