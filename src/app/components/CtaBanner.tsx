@@ -45,7 +45,7 @@ export function CtaBanner() {
             href="#contacto"
             className="inline-flex items-center justify-center bg-[#c9a227] hover:bg-[#e0b52b] text-black px-12 py-4 text-sm tracking-[0.2em] uppercase font-bold transition-all duration-300"
           >
-            Inscríbete ahora
+            Cotizar ahora
           </a>
           <a
             href="#cursos"
