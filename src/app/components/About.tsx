@@ -45,7 +45,7 @@ const instructors = [
     img: instructor2,
     name: "Verónica Rubio",
     titles: [
-      "Consultora Señor en Bienestar y Salud Terapéutica",
+      "Consultora Senior en Bienestar y Salud Terapéutica",
       "Directora de SPA Balance by Marea Condos",
     ],
     bio: "Verónica Rubio cuenta con una destacada trayectoria de más de 18 años liderando el sector de hospitalidad y bienestar en México y el Caribe. Experta en el diseño estratégico y operación de SPAs, se especializa en capacitar equipos comerciales enfocados en la comercialización de servicios adicionales y experiencias premium dentro del segmento todo incluido, asegurando altos estándares de calidad, eficiencia y rentabilidad.",
