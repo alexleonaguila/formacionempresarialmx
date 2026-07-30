@@ -84,7 +84,7 @@ export function Navbar() {
                 href="#contacto"
                 className="border border-[#c9a227] text-[#c9a227] hover:bg-[#c9a227] hover:text-black px-7 py-2.5 text-xs tracking-[0.2em] uppercase transition-all duration-300 font-medium"
               >
-                Inscríbete
+                Cotizar
               </a>
             </div>
 
