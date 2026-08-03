@@ -59,7 +59,7 @@ export function Navbar() {
                   Formación
                 </p>
                 <p className="text-[#c9a227] tracking-[0.5em] uppercase" style={{ fontSize: "0.55rem" }}>
-                  Empresarial
+                  Empresarial MX
                 </p>
               </div>
             </a>
