@@ -31,7 +31,7 @@ export function Hero() {
               className="text-[#c9a227] tracking-[0.35em] uppercase"
               style={{ fontSize: "0.7rem" }}
             >
-              Liderazgo para cualquier sector empresarial
+              Liderazgo para el sector empresarial
             </span>
           </div>
 
