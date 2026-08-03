@@ -4,6 +4,7 @@ import img3 from "../../img/3.webp";
 import img4 from "../../img/4.webp";
 import img5 from "../../img/5.webp";
 import img1 from "../../img/1.webp";
+import img6 from "../../img/6.webp";
 import img2 from "../../imports/2.png";
 
 const categories = ["Todos", "Liderazgo", "Servicio al Cliente", "Desarrollo Gerencial", "Formación", "Team Building", "Estrategia"];
@@ -84,7 +85,7 @@ const services = [
     title: "Kick Off Empresariales",
     category: "Estrategia",
     description: "Sesión estratégica para alinear equipos con metas y marcar el inicio de ciclos operativos o proyectos.",
-    img: img3,
+    img: img6,
     featured: false,
     highlights: [
       "Presentación clara y motivadora de objetivos clave",
